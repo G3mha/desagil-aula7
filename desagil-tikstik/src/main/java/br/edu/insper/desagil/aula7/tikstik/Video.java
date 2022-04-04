@@ -16,8 +16,9 @@ public class Video {
         return this.produto;
     }
 
-    public void adicionaAvaliacao(String usuario, int avaliacao) {
-        this.avaliacoes.put(usuario, avaliacao);
+    public void adicionaAvaliacao(Usuario usuario, int avaliacao) {
+        String nome = usuario.getNome();
+        this.avaliacoes.put(nome, avaliacao);
     }
 
     public int mediaAvaliacoes() {
@@ -25,6 +26,6 @@ public class Video {
         for (int avaliacao : this.avaliacoes.values()) {
             soma += avaliacao;
         }
-        return soma / this.avaliacoes.size();
+        return (int) Math.round(soma / this.avaliacoes.size());
     }
 }
